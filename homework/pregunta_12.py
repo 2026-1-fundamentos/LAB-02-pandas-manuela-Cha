@@ -25,7 +25,7 @@ def pregunta_12():
     """
     df = pd.read_csv('files/input/tbl2.tsv', sep='\t')
     resultado = (
-        df.groupby('c0')
+        df.groupby('c0')[['c5a', 'c5b']]
         .apply(lambda g: ','.join(f"{k}:{v}" for k, v in sorted(zip(g['c5a'], g['c5b']))))
         .reset_index(name='c5')
     )
